@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:listpage/pages/HomePage.dart';
-import 'package:listpage/pages/MyInfoPage.dart';
-import 'package:listpage/pages/PoZhuHaoPage.dart';
-import 'package:listpage/pages/WenDaPage.dart';
 import 'package:flutter/cupertino.dart';
+
+
+import 'pages/Home/HomePage.dart';
+import 'pages/PoZhuHao/PoZhuHaoPage.dart';
+import 'pages/WenDa/WenDaPage.dart';
+import 'pages/My/MyInfoPage.dart';
+
+
+
+
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() => new MyTabbarState();
 }
@@ -24,9 +30,9 @@ class MyTabbarState extends State<MyApp> {
    /// 页面内容区域
   var _body;
    /// 默认字体颜色
-  final taBTextStyleNormal = new TextStyle(color: Colors.lightGreen);
+  final taBTextStyleNormal = new TextStyle(color: Colors.black);
    /// 选中字体颜色
-  final taBTextStyleSelected = new TextStyle(color: Colors.black);
+  final taBTextStyleSelected = new TextStyle(color: Colors.orange);
 
 
   /// 获取图片数据
@@ -115,17 +121,11 @@ class MyTabbarState extends State<MyApp> {
      initData();
 
      return new MaterialApp(
+       debugShowCheckedModeBanner: false,
+       
 
        home: new Scaffold(
-         appBar: new AppBar(
-           title: new Text(
-             appBarTitles[0],
-             style: new TextStyle(color: Colors.white),
-           ),
-           iconTheme: new IconThemeData(color: Colors.white)
-         ),
          body: _body,
-
          bottomNavigationBar: new CupertinoTabBar(
            items: getBottomNavItems(),
            currentIndex: _tabIndex,
